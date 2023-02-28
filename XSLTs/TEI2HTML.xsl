@@ -36,9 +36,9 @@
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
                 <xsl:comment>This document is generated from a TEI Master--do not edit!</xsl:comment>
                 <title><xsl:value-of select="tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:title"/></title>
-                <link rel="stylesheet" type="text/css" href="../CSS/web_style.css"/>
+                <link rel="stylesheet" type="text/css" href="https://github.com/LEAF-VRE/code_snippets/blob/main/CSS/web_style.css"/>
                 <style type="text/css">
-                    @import url("../CSS/web_style.css");
+                    @import url("https://github.com/LEAF-VRE/code_snippets/blob/main/CSS/web_style.css");
                 </style>
             </head>
             <body>                               
