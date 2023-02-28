@@ -1,0 +1,135 @@
+html {
+    margin: 3em;
+    padding: 3em;
+    background: #FFF;
+    overflow: scroll;
+    /*    border: 5px solid;
+  border-color: black; */
+    width: 90%;
+
+}
+
+a {
+    color: #000;
+}
+a:visited {
+    color: #000;
+}
+
+a:hover {
+    color: #000;
+    font-weight: bold;
+}
+
+body {
+    background: #FFF;
+    padding: 2em;
+    border: 1px solid;
+    border-color: black;
+    width: 70%;
+}
+
+br {
+    line-height: .2;
+}
+
+em {
+}
+
+h1 {
+    color: black;
+    font-size: 2em;
+    font-family: "Times New Roman";
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    font-size: 2em;
+    font-family: "Times New Roman";
+    font-style: italic;
+}
+
+h3 {
+    color: black;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 1px;
+    text-align: left;
+}
+
+h4 {
+    color: black;
+    font-size: 1.1em;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1px;
+    text-align: left;
+}
+
+h5 {
+    font-size: 1em;
+    text-align: center;
+    line-height: 1px;
+}
+
+.note {
+    font-size: .9em;
+    line-height: 1.5em;
+    color: red;
+}
+
+p {
+    font-family: "Times New Roman", sans-serif;
+    line-height: 3px;
+    padding-left: 50px;
+}
+
+persName {
+    color: red;
+    font-weight: bold;
+}
+
+sup {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.4em;
+}
+
+byline {
+    text-align: right;
+}
+
+l {
+    padding-left: 10em;
+}
+
+/* The following creates a hovertext tooltip for all semantic tags */
+.hovertext {
+  position: relative;
+  border-bottom: 1px dotted black;
+}
+
+.hovertext:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: gray;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  transition: opacity 1s ease-in-out;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 110%;
+}
+
+.hovertext:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
