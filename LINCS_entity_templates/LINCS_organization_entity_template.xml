@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Organization standard name</title>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Canadian Writing Research Collaboratory (CWRC)</publisher>
+            <availability>
+               <licence target="https://creativecommons.org/licenses/by/4.0/legalcode">
+                  <p/>
+               </licence>
+            </availability>
+         </publicationStmt>
+         <notesStmt>
+            <note>Organization entity record</note>
+         </notesStmt>
+         <sourceDesc>
+            <p>born digital</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <listOrg>
+            <org xml:id="PID_entity_record">
+               <idno type="Authority_name" cert="high"/>
+               <orgName type="standard">
+                  <name>CWRC Organization Entity, Test</name>
+               </orgName>
+               <orgName type="prefered" xml:lang="ENG">
+                  <name type="full">Test CWRC Organization Entity</name>
+               </orgName>
+               <orgName type="variant" xml:lang="ENG">
+                  <name type="acronym">TOE CWRC</name>
+                  <note>
+                     <label>Named preferred by: </label>
+                     <desc>
+                        <orgName ref="URI">Name of the project that uses the variant name</orgName>
+                     </desc>
+                  </note>
+               </orgName>
+               <event type="establishment" source="https://www.w3.org/TR/NOTE-datetime" from="2017-01" cert="high" >
+                  <desc><placeName ref="URI">Place Name</placeName><desc>Note about the establishment</desc>
+                  </desc>
+               </event>
+               <trait type="factuality" cert="high" ref="Ontology">
+                  <ab>real/fictional
+                     <!--form should contain a dropdown with three options: real, fictional, both, unknown--></ab>
+               </trait>
+               <trait type="orgType" cert="high" ref="OntologyURL">
+                  <ab>Org Type</ab>
+               </trait>
+               <note type="general" xml:lang="ENG"> This is a general note about the organization. </note>
+               <note type="project-specific" xml:lang="ENG">
+                  <note>This is a project-specific note about the organization.</note>
+                  <respons locus="value">
+                     <desc>
+                        <orgName ref="URI">Project (e.g.CWRC, REED, Orlando)</orgName>
+                     </desc>
+                  </respons>
+               </note>
+               <listBibl>
+                  <head>Sources:</head>
+                  <bibl><title></title><ref source="WorldCat" target="Resource_URI"></ref></bibl>
+               </listBibl>
+               <note type="resp_statement">
+                  <respons locus="value">
+                     <desc> 
+                        <date type="created" source="https://www.w3.org/TR/NOTE-datetime" when="2017-11-06"/>
+                        <persName ref="URI-to-user-record">User real name</persName>
+                     </desc>
+                  </respons>
+                  <respons locus="value">
+                     <desc> 
+                        <date type="modified" source="https://www.w3.org/TR/NOTE-datetime" when="2017-11-07"/>
+                        <persName ref="URI-to-user-record">User real name</persName>
+                     </desc>
+                  </respons>
+               </note>
+            </org>
+         </listOrg>
+      </body>
+   </text>
+</TEI>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title>Person standard name</title>
+			</titleStmt>
+			<publicationStmt>
+				<publisher>Canadian Writing Research Collaboratory (CWRC)</publisher>
+				<availability>
+					<licence target="https://creativecommons.org/licenses/by/4.0/legalcode">
+						<p/>
+					</licence>
+				</availability>
+			</publicationStmt>
+			<notesStmt>
+				<note>Person entity record</note>
+			</notesStmt>
+			<sourceDesc>
+				<p>born digital</p>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+  <text>
+      <body>
+         <listEvent>
+            <event type="biographical">
+               <label>Label/title of the event</label>
+               <desc>Date, place.</desc>
+               <desc>Description of the event (optional)</desc>
+               <note type="researchNote">Fill in the date and location of the event inside the first description tag. Format as "Date, place" and tag as such using the "Tag Date" and "Tag Place" buttons on the ribon above. To identify the place, use the VIAF lookup primarely. If the location cannot be found there, use the Geocode or the CWRC lookups.</note>
+               <note type="researchNote">Use multiple description tags for a multi-paragraph extended description.</note>
+               <note type="scholarNote">Scholar note <note type="researchNote">optional - delete if none.</note></note>
+               <listBibl>
+                  <bibl>Source of event description and/or note <note type="researchNote">optional - delete list bibl if none; multiple sources-separate bibl tags; Use the "tag title" button to link the referenced resource to a title in the CWRC repository or the VIAF service.</note></bibl>
+               </listBibl>
+               <note type="keyword"><term></term><note type="researchNote">To make the event more discoverable, please add at least one keyword; to add more than one keyword, additional term elements (separated by commas) should be created for each additional keyword.</note></note>
+            </event>
+         </listEvent>
+      </body>
+  </text>
+</TEI>
