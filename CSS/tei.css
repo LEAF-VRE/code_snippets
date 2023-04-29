@@ -34,6 +34,11 @@ add {
     background-color : inherit;
     text-decoration : underline;
 }
+/* structuring addName display */
+addName {
+    display : block;
+    margin-bottom : 0.5em;
+}
 /*address {
     display : block;
     margin-top : 2em;
@@ -411,6 +416,11 @@ foreign {
     display : inline;
     font-style : italic;
 }
+/* structuring forename display */
+forename {
+    display : block;
+    margin-bottom : 0.5em;
+}
 formula {
     display : inline;
     font-style : italic;
@@ -433,6 +443,11 @@ gap {
 gap:after {
     content : "[...]";
     font-style : italic;
+}
+/* structuring genName display */
+genName {
+    display : block;
+    margin-bottom : 0.5em;
 }
 gi,
 tag {
@@ -731,6 +746,19 @@ milestone {
 name {
     display : inline;
 }
+/* structuring name @type (forename, middlename, surname) display */
+name[type='forename'] {
+    display : block;
+    margin-bottom : 0.5em;
+}
+name[type='middlename'] {
+    display : block;
+    margin-bottom : 0.5em;
+}
+name[type='surname'] {
+    display : block;
+    margin-bottom : 0.5em;
+}
 note {
     display : block;
     color:#999;
@@ -945,6 +973,11 @@ rdg:before {
     content : "[" attr(wit) "] ";
     color : red;
 }
+/* structuring roleName display */
+roleName {
+    display : block;
+    margin-bottom : 0.5em;
+}
 row {
     display : table-row;
 }
@@ -1022,6 +1055,11 @@ sponsor {
 stage {
     display : inline;
     font-style : italic;
+}
+/* structuring surname display */
+surname {
+    display : block;
+    margin-bottom : 0.5em;
 }
 table {
     text-align : center;
