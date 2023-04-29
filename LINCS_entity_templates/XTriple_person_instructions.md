@@ -67,7 +67,7 @@ Include the @source and @value attributes:
 If you know one or more occupations in which the person engaged, consult the 
 [https://vocab.lincsproject.ca/Skosmos/occupation/en/](https://vocab.lincsproject.ca/Skosmos/occupation/en/)https://vocab.lincsproject.ca/Skosmos/occupation/en/ and include the URI as a @type value within the element, and a human-readable term.
 
-`<occupation type="http://id.lincsproject.ca/occupation/academic">Researcher</occupation>`
+        <occupation type="http://id.lincsproject.ca/occupation/academic">Researcher</occupation>
 
 (you can include as many occupations as desired)
 
