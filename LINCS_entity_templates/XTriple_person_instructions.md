@@ -23,7 +23,7 @@ If you have a Persistent Identitifier (PID) for a person, you will add it to the
 
 If the person has one or more existing authority names on VIAF, Wikidata, or similar online authorities, include one or all of them:
 
-                <idno type="Authority_name">https://www.wikidata.org/wiki/Q40909</idno>
+                <idno type="URI">https://www.wikidata.org/wiki/Q40909</idno>
 
 ----------
 
