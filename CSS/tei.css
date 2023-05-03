@@ -9,6 +9,7 @@
             2003-08-29 start of new parent div resets child auto-count. kl
             2003-11-06 list attr list-style-type was none, now disc. kl
             2007-06  reworking for TEI P5 and oxygen    
+            2023-05-03 Diane Jakacki added display for people and places in LEAF-Writer - see 'DKJ' in comments
     
     **********
     For comments, questions, and suggestions please contact Susan Brown, CWRC project leader
@@ -155,7 +156,7 @@ biblScope {
 imprint > biblScope {
     display : block;
 }
-/* structuring birth display */
+/* DKJ 05/02/2023 structuring birth display */
 birth {
     display : block;
     margin-bottom : 0.5em;
@@ -250,7 +251,7 @@ publicationStmt > date {
 dateline {
     display : inline;
 }
-/* structuring death display */
+/* DKJ 05/02/2023 structuring death display */
 death {
     display : block;
     margin-bottom : 0.5em;
@@ -416,7 +417,7 @@ foreign {
     display : inline;
     font-style : italic;
 }
-/* structuring forename display */
+/* DKJ 05/02/2023 structuring forename display */
 forename {
     display : block;
     margin-bottom : 0.5em;
@@ -444,7 +445,7 @@ gap:after {
     content : "[...]";
     font-style : italic;
 }
-/* structuring genName display */
+/* DKJ 05/02/2023 structuring genName display */
 genName {
     display : block;
     margin-bottom : 0.5em;
@@ -731,8 +732,13 @@ listBibl {
     display : block;
     margin-bottom : 0.5em;
 }
-/* structuring listPerson display */
+/* DKJ 05/02/2023 structuring listPerson display */
 listPerson > person > persName{
+    display : block;
+    margin-bottom : 0.5em;
+}
+/* DKJ 05/02/2023 structuring listPlace display */
+listPlace > place > pName{
     display : block;
     margin-bottom : 0.5em;
 }
@@ -746,7 +752,7 @@ milestone {
 name {
     display : inline;
 }
-/* structuring name @type (forename, middlename, surname) display */
+/* DKJ 05/02/2023 structuring name @type (forename, middlename, surname) display */
 name[type='forename'] {
     display : block;
     margin-bottom : 0.5em;
@@ -813,7 +819,7 @@ notesStmt {
 num {
     display : inline;
 }
-/* structuring occupation display */
+/* DKJ 05/02/2023 structuring occupation display */
 occupation {
     display : block;
     margin-bottom : 0.5em;
@@ -973,7 +979,7 @@ rdg:before {
     content : "[" attr(wit) "] ";
     color : red;
 }
-/* structuring roleName display */
+/* DKJ 05/02/2023 structuring roleName display */
 roleName {
     display : block;
     margin-bottom : 0.5em;
@@ -1007,7 +1013,7 @@ seriesStmt {
     display : block;
     margin-bottom : 1em;
 }
-/* structuring sex display */
+/* DKJ 05/02/2023 structuring sex term display */
 sex {
     display : block;
     margin-bottom : 0.5em;
@@ -1056,7 +1062,7 @@ stage {
     display : inline;
     font-style : italic;
 }
-/* structuring surname display */
+/* DKJ 05/02/2023 structuring surname display */
 surname {
     display : block;
     margin-bottom : 0.5em;
