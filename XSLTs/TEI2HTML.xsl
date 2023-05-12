@@ -177,7 +177,7 @@
         </a>
     </xsl:template>
         
-    <!-- persName without any link 
+    <!-- persName without any link -->
     <xsl:template match="tei:persName">
         <font color="blue">
             <xsl:apply-templates/>
