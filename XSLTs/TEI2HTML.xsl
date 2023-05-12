@@ -176,7 +176,12 @@
             <xsl:apply-templates/>
         </a>
     </xsl:template>
-        
+<!-- persName without linked text-->
+    <xsl:template match="tei:persName">
+        <font color="blue">
+            <xsl:apply-templates/>
+        </font>
+    </xsl:template>
     
 </xsl:stylesheet>
 
