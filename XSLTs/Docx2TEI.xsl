@@ -30,6 +30,7 @@
         <xsl:apply-templates/>
     </xsl:template>
     
+    <!-- Adding TEI and teiHeader before the text -->
     <xsl:template match="pkg:package">
         <TEI xmlns="http://www.tei-c.org/ns/1.0">
             <teiHeader>
@@ -48,49 +49,52 @@
             <xsl:apply-templates/>
         </TEI>
     </xsl:template>
-
+    
+    <!-- Deletes "cp:coreProperties" -->
     <xsl:template match="cp:coreProperties"/>
     
+    <!-- Deletes "pkg:part[@pkg:name='/docProps/app.xml']/pkg:xmlData/office:Properties" -->
     <xsl:template match="pkg:part[@pkg:name='/docProps/app.xml']/pkg:xmlData/office:Properties">
         <!-- Do nothing, effectively excluding the "Properties" element and its contents -->
     </xsl:template>
     
+    <!-- When w:body exist substitute it with "text" that capsulates "body" -->
     <xsl:template match="w:body">
-        <text>
-            <body>
+        <xsl:element name="text" namespace="http://www.tei-c.org/ns/1.0">
+            <xsl:element name="body" namespace="http://www.tei-c.org/ns/1.0">
                 <xsl:apply-templates/>
-            </body>
-        </text>
+            </xsl:element>
+        </xsl:element>
     </xsl:template>
- 
+    
+    <!-- This text do number of things first it looks for "w:r" and  once it is found it does one out of four actions. 
+        If "w:r" is followed by "w:rPr/w:b" it substitue "w:r/w:rPr/w:b" and capsulate what is between with <p> and <hi rend="bold">. 
+        If "w:r" is followed by "w:rPr/w:i" it substitute "w:r/w:rPr/w:i" capsulate what is between with <p> and <hi rend="italic">.
+        If "w:r" is followed by "w:rPr/w:color" it ignores the w:r.
+        Else it substitute "w:r" with <p>. -->
     <xsl:template match= "w:r">
         <xsl:choose>
-            
             <xsl:when test = "w:rPr/w:b">
-                <p>
+                <p xmlns="http://www.tei-c.org/ns/1.0">
                     <hi rend="bold">
                         <xsl:apply-templates/>
                     </hi>
                 </p>
             </xsl:when>
-            
             <xsl:when test = "w:rPr/w:i">
-                <p>
+                <p xmlns="http://www.tei-c.org/ns/1.0">
                     <hi rend="italic">
                         <xsl:apply-templates/>
                     </hi>
                 </p>
             </xsl:when>
-            
             <xsl:when test = "w:rPr/w:color">
                 <xsl:apply-templates/>
             </xsl:when>
-
             <xsl:otherwise>
-                <p>
+                <p xmlns="http://www.tei-c.org/ns/1.0">
                     <xsl:apply-templates/>
                 </p>
-                
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
