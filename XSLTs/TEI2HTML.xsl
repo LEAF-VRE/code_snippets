@@ -12,7 +12,6 @@
     The LEAF-Writer project is licensed under the GNU Affero General Public License v3.0 (https://choosealicense.com/licenses/agpl-3.0/)
     For more information about LEAF-Writer, the larger LEAF platform, go to: https://gitlab.com/calincs/cwrc/leaf-writer/leaf-writer-->
     
-    
     <xsl:output doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
         doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
         method="xhtml" omit-xml-declaration="yes" indent="yes" encoding="UTF-8"/>
@@ -176,6 +175,7 @@
             <xsl:apply-templates/>
         </a>
     </xsl:template>
+
         
     <!-- persName without any link -->
     <xsl:template match="tei:persName">
