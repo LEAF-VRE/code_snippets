@@ -1,0 +1,35 @@
+{
+    "inputs": [
+        "link to raw XML file in github"
+    ],
+    "documents": "//div[@type='divType'or@type='otherDivTypeIfApplicable']",
+    "ignoreNamespace": true,
+    "documentTitle": "head",
+    "documentAuthor": "",
+    "documentImages": "",
+    "documentNotes": "",
+    "documentLinks": "",
+    "indexDocument": "//div[@type='index']",
+    "editionTitle": "Title",
+    "editionSubtitle": "Subtitle",
+    "curation": {
+        "markup": [
+            {
+                "xpath": "//persName",
+                "label": "People"
+            },
+            {
+                "xpath": "//placeName",
+                "label": "Places"
+            },
+            {
+                "xpath": "//orgName",
+                "label": "Organizations"
+            },
+            {
+                "xpath": "//objectName",
+                "label": "Objects"
+            }
+            ]
+            }
+}
