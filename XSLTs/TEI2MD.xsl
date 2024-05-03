@@ -2,8 +2,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
-    exclude-result-prefixes="xs tei md"
-    version="1.0">
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    exclude-result-prefixes="xs tei xhtml"
+    version="2.0">
     
     <!-- This XSLT has been adapted from work done over time by members of the TEI-C council and community.
     Most recently it was developed specifically to transform the XML output from the Transkribus platform
@@ -15,9 +16,16 @@
         indent="no" 
         method="text"/>
     
-    <xsl:template match="tei:teiHeader"/>
-    
     <xsl:strip-space elements="*"/>
+    
+    <xsl:template match="tei:teiHeader">
+        <xsl:value-of select="concat('# ', tei:fileDesc/tei:titleStmt/tei:title[1], '&#13;')"/>
+        <xsl:if test="tei:fileDesc/tei:titleStmt/tei:author">
+            <xsl:value-of select="concat('## by ', tei:fileDesc/tei:titleStmt/tei:author[1], '&#13;')"/>
+        </xsl:if>
+    </xsl:template>
+    
+    
     
 <!--    <xsl:template match="text()">
         <xsl:value-of select="translate(., ' ', '')"/>
@@ -73,8 +81,12 @@
         <xsl:text>  </xsl:text>
     </xsl:template>
     
-    <!-- hide page breaks -->
-    <xsl:template match="tei:pb"/>
+    <!-- hide page but shows the page number -->
+    <xsl:template match="tei:pb[@n]">
+        <xsl:call-template name="return2"/>  
+        <xsl:value-of select="concat(' [', @n, '] ')"/>
+        <xsl:call-template name="return2"/>    
+    </xsl:template>
     
 <xsl:template match="tei:byline">
     <xsl:text>*</xsl:text>
@@ -102,9 +114,9 @@
     
     <!-- text that is rendered as italicized in encoded source is rendered in italics -->
     <xsl:template match="tei:emph">
-        <xsl:text>*</xsl:text>
+        <xsl:text>**</xsl:text>
         <xsl:apply-templates/>
-        <xsl:text>*</xsl:text>
+        <xsl:text>**</xsl:text>
     </xsl:template>
         
     
@@ -136,7 +148,25 @@
 
     </xsl:template>
 
-
+    <xsl:template match="tei:ref[@target]">
+        <xsl:text>[</xsl:text><xsl:apply-templates/><xsl:text>]</xsl:text>
+        <xsl:value-of select="concat( '(', @target,  ')' )"/>
+    </xsl:template>
+    
+    <!-- match tei:graphic with a url, grab a description, create markdown -->
+    <xsl:template match="tei:graphic[starts-with(@url, 'http')]">
+        <xsl:variable name="description">
+            <xsl:choose>
+                <xsl:when test="tei:desc"><xsl:value-of select="tei:desc"/></xsl:when>
+                <xsl:when test="parent::tei:figure/tei:figDesc[1]"><xsl:value-of select="parent::tei:figure/tei:figDesc[1]"/></xsl:when>
+                <xsl:when test="parent::tei:figure/tei:head[1]"><xsl:value-of select="parent::tei:figure/tei:head[1]"/></xsl:when>
+                <xsl:otherwise>Image</xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="concat( '&#xA;![', $description, '](', @url, ')' )"/>
+    </xsl:template>
+    <!-- Don't put out figure descriptions used above -->
+    <xsl:template match="tei:figure/tei:figDesc | tei:figure/tei:head"/>
 
 <!-- What does this do?
     <xsl:template match="node()">
