@@ -168,12 +168,6 @@ byline {
     margin-bottom: 0.5em;
 }
 
-/*  Adding text for Légende (caption) before caption text */
-caption:before {
-    content: "Légende: ";
-    font-style: italic;
-}
-
 /* indenting caption text */
 caption {
     display: block;
@@ -260,7 +254,7 @@ code {
 
 *[comment]::before {
   content: "<!-- " attr(comment) " -->";
-  color: green;
+  color: #008000;
   font-style: italic;
 }
 
