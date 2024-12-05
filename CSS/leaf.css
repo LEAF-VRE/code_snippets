@@ -438,6 +438,10 @@ funder {
     display : block;
     margin-bottom : 0.5em;
 }
+fw {
+    display : block;
+    text-align: center;
+}
 gap {
     display : none;
 }
