@@ -287,9 +287,11 @@ body > div > div > div {
 body > div[type = "letter"] {
     margin-bottom: 2em !important;
 }
-div[type = "poem"] {
+/* DKJ 06/20/2025: hide counter-reset */
+/*  div[type = "poem"] {
     counter-reset: line;
-}
+}*/
+
 div1 {
     display: block;
     margin-bottom: 1em;
