@@ -10,7 +10,8 @@
             2003-11-06 list attr list-style-type was none, now disc. kl
             2007-06  reworking for TEI P5 and oxygen    
             2023-05-03 Diane Jakacki added display for people and places in LEAF-Writer - see 'DKJ' in comments
-    
+	2024-11-26 Diane Jakacki added left align for paragraphs (rather than justify)
+    		
     **********
     For comments, questions, and suggestions please contact Susan Brown, CWRC project leader
     (sbrown@uoguelph.ca) or Mariana Paredes-Olea, CWRC Metadata Coordinator (paredeso@ualberta.ca)
@@ -851,9 +852,10 @@ opener {
     display: block;
     margin-bottom: 0.5em;
 }
+	/*DKJ changed from justify to left aligned */
 opener p {
-    text-align: justify !important;
-    text-indent: 0 !important;
+    text-align : left !important;
+    text-indent : 0 !important;
 }
 orig {
     display: inline;
@@ -1073,9 +1075,10 @@ sp {
     margin-bottom: 0.5em;
     margin-left: 2em;
 }
+/*DKJ changed from justify to left-aligned
 div p {
-    text-align: justify;
-    text-indent: 30px;
+    text-align : left;
+    text-indent : 30px;
 }
 speaker {
     display: inline;
