@@ -287,9 +287,11 @@ body > div > div > div {
 body > div[type = "letter"] {
     margin-bottom: 2em !important;
 }
-div[type = "poem"] {
+/* DKJ 06/20/2025: hide counter-reset */
+/*  div[type = "poem"] {
     counter-reset: line;
-}
+}*/
+
 div1 {
     display: block;
     margin-bottom: 1em;
@@ -654,8 +656,10 @@ kw {
 l {
     display: block;
     white-space: nowrap;
+    margin-left: 1em;
 }
-lg l:after {
+/* DKJ 06/20/2025: hide line numbering for verse because it is distracting */
+/* lg l:after {
     counter-increment: line;
     content: counter(line);
     text-align: right;
@@ -663,6 +667,8 @@ lg l:after {
     color: silver;
     margin-right: 50px;
 }
+*/
+
 label {
     display: inline;
     font-weight: bold;
@@ -701,7 +707,9 @@ lb:before {
 lg {
     display: block;
     margin-bottom: 0.5em;
-    counter-reset: line;
+    margin-left: 1em;
+   /* DKJ 06/20/2025: counter-reset: 
+    * line; -- hiding counter*/
 }
 list {
     display: block;
@@ -843,7 +851,7 @@ notesStmt {
 num {
     display: inline;
 }
-/* DKJ 05/02/2023 structuring occupation display */
+/* DKJ 05/02/2023: structuring occupation display */
 occupation {
     display: block;
     margin-bottom: 0.5em;
@@ -1085,6 +1093,8 @@ div p {
     text-align : left;
     text-indent : 30px;
 }
+ */
+
 speaker {
     display: inline;
     font-weight: bold;
