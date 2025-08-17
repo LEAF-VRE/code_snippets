@@ -970,6 +970,10 @@ q:before {
 q:after {
     content: close-quote;
 }
+quote {
+    display: block;
+    margin-left: 1em;
+}
 ref {
     display: inline;
     color: blue;
