@@ -656,6 +656,7 @@ kw {
 l {
     display: block;
     white-space: nowrap;
+    margin-left: 1em;
 }
 /* DKJ 06/20/2025: hide line numbering for verse because it is distracting */
 /* lg l:after {
