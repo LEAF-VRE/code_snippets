@@ -707,6 +707,7 @@ lb:before {
 lg {
     display: block;
     margin-bottom: 0.5em;
+    margin-left: 1em;
    /* DKJ 06/20/2025: counter-reset: 
     * line; -- hiding counter*/
 }
