@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet 
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:tei="http://www.tei-c.org/ns/1.0"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  exclude-result-prefixes="tei xs"
+  version="2.0">
+  
+  <xsl:output method="xml" indent="yes" encoding="UTF-8"/>
+  
+  <!-- 
+    Pass the source filename in via a parameter, e.g.:
+      saxon -s:input.xml -xsl:add-ids.xsl filename=input.xml
+    Falls back to tokenising the system-id of the document if not supplied.
+  -->
+  <xsl:param name="filename" as="xs:string"
+    select="tokenize(document-uri(/), '/')[last()]"/>
+  
+  <!-- Strip the extension from the filename for cleaner IDs -->
+  <xsl:variable name="basename" as="xs:string"
+    select="replace($filename, '\.[^.]+$', '')"/>
+  
+  <!-- ============================================================
+       Numbering helpers
+       We assign a document-order sequence number to every div and p
+       that does NOT already carry an xml:id.  We do this by counting
+       preceding elements of the same local-name() that also lack
+       an xml:id, then adding 1.
+       ============================================================ -->
+  
+  <!-- Identity transform: copy everything as-is -->
+  <xsl:template match="@* | node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@* | node()"/>
+    </xsl:copy>
+  </xsl:template>
+  
+  <!-- Handle div elements (TEI-namespaced or no-namespace) -->
+  <xsl:template match="tei:div | div">
+    <xsl:copy>
+      <xsl:choose>
+        <!-- Already has an xml:id — keep everything untouched -->
+        <xsl:when test="@xml:id">
+          <xsl:apply-templates select="@* | node()"/>
+        </xsl:when>
+        <!-- No xml:id — generate one, then copy remaining attributes -->
+        <xsl:otherwise>
+          <xsl:variable name="n" as="xs:integer"
+            select="count(preceding::tei:div[not(@xml:id)] |
+            preceding::div[not(@xml:id)]) + 1"/>
+          <xsl:attribute name="xml:id"
+            select="concat($basename, '_div_', $n)"/>
+          <xsl:apply-templates select="@* | node()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:copy>
+  </xsl:template>
+  
+  <!-- Handle p elements (TEI-namespaced or no-namespace) -->
+  <xsl:template match="tei:p | p">
+    <xsl:copy>
+      <xsl:choose>
+        <xsl:when test="@xml:id">
+          <xsl:apply-templates select="@* | node()"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="n" as="xs:integer"
+            select="count(preceding::tei:p[not(@xml:id)] |
+            preceding::p[not(@xml:id)]) + 1"/>
+          <xsl:attribute name="xml:id"
+            select="concat($basename, '_p_', $n)"/>
+          <xsl:apply-templates select="@* | node()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:copy>
+  </xsl:template>
+  
+</xsl:stylesheet>
