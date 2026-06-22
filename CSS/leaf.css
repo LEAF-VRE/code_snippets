@@ -11,6 +11,7 @@
             2007-06  reworking for TEI P5 and oxygen    
             2023-05-03 Diane Jakacki added display for people and places in LEAF-Writer - see 'DKJ' in comments
 	2024-11-26 Diane Jakacki added left align for paragraphs (rather than justify)
+	2025-06-22 James Cummings added tei:ab basic block formatting. 
     		
     **********
     For comments, questions, and suggestions please contact Susan Brown, CWRC project leader
@@ -26,6 +27,12 @@ TEI {
     line-height: 1.5;
 }
 
+/** JC adding tei:ab basic formatting **/ 
+ab  {
+    display: block;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
 
 abbr {
     display: inline;
