@@ -11,7 +11,8 @@
             2007-06  reworking for TEI P5 and oxygen    
             2023-05-03 Diane Jakacki added display for people and places in LEAF-Writer - see 'DKJ' in comments
 	2024-11-26 Diane Jakacki added left align for paragraphs (rather than justify)
-	2025-06-22 James Cummings added tei:ab basic block formatting. 
+	2026-06-22 James Cummings added tei:ab basic block formatting. 
+	2026-07-04 James Cummings added something which might help format tei:ruby, rb, and rt elements. 
     		
     **********
     For comments, questions, and suggestions please contact Susan Brown, CWRC project leader
@@ -32,6 +33,7 @@ ab  {
     display: block;
     margin-bottom: 0.5em;
     margin-left: 1em;
+	line-height: 1.5em;
 }
 
 abbr {
@@ -1043,6 +1045,24 @@ row[role = 'label'] {
 rs {
     display: inline;
 }
+
+ruby {
+    display: ruby;
+}
+
+rb {
+    display: ruby-base;
+    white-space: nowrap;
+}
+
+rt {
+    display: ruby-text;
+    font-size: 0.55em; /* Standard sizing for legible ruby text */
+    line-height: 1;
+    ruby-position: over; /* Forces annotations above horizontal text */
+    ruby-align: space-around; /* Distributes furigana cleanly over the base characters */
+}
+
 s {
     display: inline;
 }
