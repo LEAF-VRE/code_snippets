@@ -1,0 +1,66 @@
+/* Root: CSS Variables can be used to store values that can be reused throughout the stylesheet*/
+:root {
+ /* --gandhi-color-pine: hsl(125, 9%, 27%); 
+  --gandhi-color-sage: hsl(96, 12%, 42%); not using, but storing here so as not to lose */
+   --gandhi-color-dingley: hsl(75, 25.3%, 37.3%);
+   --gandhi-color-turtle-green: hsl(75.8, 45.2%, 16.5%);
+  --gandhi-color-bark: hsl(23, 22%, 33%);
+  --gandhi-color-linen: hsl(30, 38%, 85%);
+  --gandhi-color-chrome-white: hsl(76.9,64%,90.2%);
+  --gandhi-color-white: hsl(0, 0%, 100%)
+}
+
+/* Background Colors: Use the CSS Variables to set the background color of the elements */
+.gandhi-bg-dingley    { background-color: var(--gandhi-color-dingley); }
+.gandhi-bg-turtle-green    { background-color: var(--gandhi-color-turtle-green); }
+.gandhi-bg-bark    { background-color: var(--gandhi-color-bark); }
+.gandhi-bg-linen   { background-color: var(--gandhi-color-linen); }
+.gandhi-bg-chrome-white {background-color:var(--gandhi-color-chrome-white);}
+.gandhi-bg-color-white {background-color:var(--gandhi-color-white);}
+
+/* Border Colors: Use the CSS Variables to set the border color of the elements */
+.gandhi-border-dingley  { border-color: var(--gandhi-color-dingley); }
+.gandhi-border-turtle-green  { border-color: var(--gandhi-color-turtle-green); }
+.gandhi-border-bark  { border-color: var(--gandhi-color-bark); }
+.gandhi-border-linen { border-color: var(--gandhi-color-linen); }
+.gandhi-border-chrome-white {border-color:var(--gandhi-color-chrome-white);}
+.gandhi-border-color-white {border-color:var(--gandhi-color-white);}
+
+
+/* Text Colors: Use the CSS Variables to set the background color of the elements */
+.gandhi-text-dingley  { color: var(--gandhi-color-dingley); }
+.gandhi-text-turtle-green  { color: var(--gandhi-color-turtle-green); }
+.gandhi-text-bark  { color: var(--gandhi-color-bark); }
+.gandhi-text-linen { color: var(--gandhi-color-linen); }
+.gandhi-text-chrome-white {color:var(--gandhi-color-chrome-white);}
+.gandhi-text-color-white {color:var(--gandhi-color-white);}
+
+
+
+
+/* Specifc Button: Use the CSS Variables to set the background color of the button */
+.gandhi-btn {
+  padding: 0.5rem 1.25rem;
+  background-color: var(--gandhi-color-pine);
+  color: var(--white);
+  border: none;
+  border-radius: .25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  }
+  
+  .gandhi-btn2 {
+      padding: 0.5rem 1.25rem;
+      background-color: var(--gandhi-color-linen);
+      color: var(--gandhi-text-bark);
+border: none;
+  border-radius: .25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  }
+
+/*  might want light green as text color on button */
+  &:hover {
+    background-color: var(--gandhi-color-sage);
+  }
+}

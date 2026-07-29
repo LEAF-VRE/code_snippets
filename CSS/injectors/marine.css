@@ -1,0 +1,57 @@
+ /* Developing a palette that can extend the 'Marine' theme in LEAF */
+ 
+ :root {
+    --marine-color-astronaut-blue: hsl(202, 98%, 19%);
+    --marine-color-white: hsl(0, 0%, 100%);
+    --marine-color-light-blue: hsl(206, 50%, 75%);
+    --marine-color-cool-grey: hsl(210, 11%, 93%);
+    --marine-color-khaki: hsl(39, 50%, 76%);
+    --marine-color-terracotta: hsl(17, 65%, 55%);
+}
+
+/* Background Colors */
+.marine-bg-astronaut-blue { background-color: var(--marine-color-astronaut-blue); }
+.marine-bg-color-white { background-color: var(--marine-color-white); }
+.marine-bg-color-light-blue { background-color: var(--marine-color-light-blue); }
+.marine-bg-color-cool-grey { background-color: var(--marine-color-cool-grey); }
+.marine-bg-color-khaki  { background-color: var(--marine-color-khaki); }
+.marine-bg-color-terracotta { background-color: var(--marine-color-terracotta); }
+
+/* Border Colors */
+.marine-border-astronaut-blue { 
+    border-color: var(--marine-color-astronaut-blue); 
+    border-style: solid;
+  border-width: 5px;
+    
+}
+.marine-border-cool-grey { border-color: var(--marine-color-cool-grey); }
+
+/* Text Colors */
+.marine-text-astronaut-blue {color: var(--marine-color-astronaut-blue);}
+.marine-text-color-white {color: var(--marine-color-white);}
+.marine-text-color-cool-grey {color: var(--marine-color-cool-grey);}
+
+/* Paragraph Width  */
+.marine-max-width {
+  max-width: 75ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Blockquote */
+.marine-blockquote {
+    color: var(--marine-color-astronaut-blue);
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+    font-style: italic;
+}
+
+/* Style the citation if using a <cite> tag inside/after the quote */
+.marine-blockquote-cite {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  color: var(--marine-color-khaki); 
+  font-style: normal;
+  font-weight: bold;
+}

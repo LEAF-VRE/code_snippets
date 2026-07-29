@@ -1,0 +1,168 @@
+:root {
+	--reed-color-cardinal-red: hsl(350, 73%, 44%);
+	--reed-color-gainsboro: hsl(0, 0%, 85%);
+	--reed-color-dark-grey: hsl(0, 0%, 35%);
+	--reed-color-charcoal: hsl(0, 0%, 15%);
+	--reed-color-pale-grey: hsl(0, 0%, 80%);
+               --reed-margin-col-width: 11em;
+                --reed-gutter-gap: 1.5em;
+}
+
+* { box-sizing: border-box; }
+
+.reed-document {
+  font-family: "Palatino Linotype", Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+  color: #222;
+  max-width: 60em;
+  margin: 0 auto;
+  padding: 2em 1em 4em;
+  background: #fdfcf8;
+}
+
+.reed-document h1,
+.reed-document h2,
+.reed-document h3,
+.reed-document h4,
+.reed-document h5,
+.reed-document h6 {
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+  color: #4a3623;
+  line-height: 1.25;
+}
+
+.reed-document h1 { font-size: 2em; border-bottom: 3px double #4a3623; padding-bottom: .25em; }
+.reed-document h2 { font-size: 1.5em; margin-top: 2.5em; border-bottom: 1px solid var(--reed-rule-color); }
+.reed-document h3 { font-size: 1.2em; }
+.reed-document h4 { font-size: 1.05em; font-style: italic; }
+
+/* Each record gets gutters on both sides for marginal notes */
+.reed-record {
+  position: relative;
+  padding: 0 calc(var(--reed-margin-col-width) + var(--reed-gutter-gap));
+}
+
+.reed-record::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.reed-commentary {
+  clear: both;
+}
+
+@media (max-width: 50em) {
+  .reed-record { padding: 0; }
+  .reed-marginal { float: none !important; margin: .5em 0 !important; display: block; }
+}
+
+.reed-ab, .reed-label, .reed-record > p {
+  margin: 0.6em 0;
+}
+
+.reed-label {
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+  font-size: .85em;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #777;
+}
+
+.reed-gap-block {
+  font-style: italic;
+  color: #999;
+  text-align: center;
+}
+
+/* Marginal notes pulled into the side gutters */
+.reed-marginal {
+  display: block;
+  width: var(--reed-margin-col-width);
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+  font-size: .8em;
+  color: var(--reed-note-color);
+  border-left: 2px solid var(--reed-note-color);
+  padding-left: .5em;
+  line-height: 1.3;
+}
+
+.reed-margin-left {
+  float: left;
+  margin-left: calc(-1 * (var(--reed-margin-col-width) + var(--reed-gutter-gap)));
+  clear: left;
+  border-left: none;
+  border-right: 2px solid var(--reed-note-color);
+  padding-left: 0;
+  padding-right: .5em;
+  text-align: right;
+}
+
+.reed-margin-right {
+  float: right;
+  margin-right: calc(-1 * (var(--reed-margin-col-width) + var(--reed-gutter-gap)));
+  clear: right;
+}
+
+/* Inline editorial conventions */
+.reed-expan-letters { font-style: italic; }
+.reed-damage { text-decoration: underline dotted #999; }
+.reed-gap { color: #999; font-style: italic; }
+.reed-measure { font-variant-numeric: oldstyle-nums; }
+
+.reed-persname, .reed-placename {
+  color: var(--reed-link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--reed-link-color);
+}
+.reed-persname:hover, .reed-placename:hover { background: #eef4f8; }
+
+/* researchNote markers and textual-notes list */
+.reed-note-ref a {
+  color: #b35900;
+  text-decoration: none;
+  font-weight: bold;
+}
+.reed-note-ref a:hover { text-decoration: underline; }
+
+.reed-endnotes {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 3px double #4a3623;
+  font-size: .92em;
+}
+.reed-endnotes li { margin-bottom: .6em; }
+.reed-endnotes .reed-back-ref { text-decoration: none; margin-left: .3em; }
+
+/* Commentary notes (record-level, originally div type="endnote") */
+.reed-commentary {
+  margin: 1em 0;
+  padding: .6em 1em;
+  background: #f4efe6;
+  border-left: 4px solid #b89b72;
+  font-size: .92em;
+}
+.reed-commentary-heading {
+  margin: 0 0 .3em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #8a6d3b;
+}
+
+.reed-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  font-size: .95em;
+}
+.reed-table td, .reed-table th {
+  border: 1px solid var(--reed-rule-color);
+  padding: .35em .6em;
+  vertical-align: top;
+}
+.reed-table td:last-child, .reed-table th:last-child {
+  text-align: right;
+  white-space: nowrap;
+  width: 1%;
+}

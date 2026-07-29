@@ -1,0 +1,149 @@
+/* Holinshed Chronicles — starter stylesheet for the LEAF CSS Injector
+   Pairs with tei_to_xhtml.py's minimal class scheme:
+     .chronicle-text  wrapper, reserves the right-hand gutter
+     .marginalia      TEI <note place="marg"> — floated into the gutter
+     .figure          TEI <figure> — illustration placeholder
+     .pb              TEI <pb> — page-break anchor (hidden by default)
+     .gap             TEI <gap> — illegible/missing text
+     class="{div/@type}" on <section>, e.g. .reign, .Battle_Abbey_roll
+   Everything else (p, ul/li, blockquote, h1-h6, em, strong, sup) is left
+   to plain semantic HTML, styled generically below. */
+
+/* Developing Holinshed color palette */
+:root {
+ --chronicle-color-crimson: hsl(350 70.3% 39.6%);
+ --chronicle-color-white: hsl(0, 0%, 100%)
+}
+
+/* Background Colors: Use the CSS Variables to set the background color of the elements */
+.chronicle-bg-crimson    { background-color: var(--chronicle-color-crimson); }
+.chronicle-bg-color-white {background-color:var(--chronicle-color-white);}
+
+/* Text Colors */
+.chronicle-text-crimson    {color: var(--chronicle-color-crimson); }
+.chronicle-text-color-white {color:var(--chronicle-color-white);}
+
+.chronicle-text {
+  /* No max-width / auto-centering here on purpose: LEAF's own page
+     template already constrains and centers the content column (it was
+     measuring ~1170px wide on the live William Conqueror page). Adding a
+     second, narrower max-width + margin:auto on top of that just squeezes
+     a smaller column into the middle of the one LEAF already built,
+     producing large dead margins on both sides. Instead, fill whatever
+     width the surrounding page gives us and only reserve the gutter
+     needed for marginalia via padding. box-sizing: border-box keeps that
+     padding from pushing the element wider than its container. */
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1.5em 14em 3em 1.5em; /* right gutter reserved for marginalia */
+  font-family: Georgia, "Iowan Old Style", serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+}
+
+.chronicle-text h1 {
+  font-size: 1.6em;
+  margin-bottom: 0.6em;
+}
+
+.chronicle-text h2 {
+  font-size: 1.25em;
+  margin-top: 1.6em;
+}
+
+.chronicle-text h3 {
+  font-size: 1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 1.2em;
+  color: #555;
+}
+
+.chronicle-text p {
+  margin: 0 0 1em 0;
+  text-align: justify;
+}
+
+.chronicle-text blockquote {
+  margin: 1em 2em;
+  font-style: italic;
+}
+
+.chronicle-text ul {
+  columns: 2;
+  column-gap: 2em;
+  padding-left: 1.2em;
+}
+
+/* Marginal notes: pulled out of the text column into the reserved gutter.
+   Because they float, each note lands roughly beside the line where it
+   occurs in the source, which is what a marginal note is meant to do. */
+.marginalia {
+  float: right;
+  clear: right;
+  width: 12em;
+  margin-right: -14em;
+  font-size: 0.72em;
+  line-height: 1.35;
+  color: #555;
+  text-align: left;
+}
+
+/* Illustration placeholders — replace/extend once images are available */
+.figure {
+  display: block;
+  margin: 1em 0;
+  padding: 0.75em;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85em;
+  color: #999;
+  border: 1px dashed #ccc;
+}
+.figure::before {
+  content: "[illustration, p. " attr(data-n) "]";
+}
+
+/* Page-break markers are citation anchors only — not shown by default.
+   Comment this rule out (or swap to a visible style) if you want page
+   numbers to show inline in the text. */
+.pb {
+  display: none;
+}
+
+/* Illegible / missing text in the source */
+.gap {
+  font-style: italic;
+  color: #999;
+}
+
+/* Narrower viewports: drop the float, show notes inline below their
+   paragraph instead of in a side gutter */
+@media (max-width: 700px) {
+  .chronicle-text {
+    padding-right: 1.5em;
+  }
+  .marginalia {
+    float: none;
+    display: block;
+    width: auto;
+    margin: 0.4em 0 0.8em 0;
+    padding-left: 0.6em;
+    border-left: 3px solid #ddd;
+  }
+  .chronicle-text ul {
+    columns: 1;
+  }
+
+  .chronicle-btn {
+      padding: 0.5rem 1.25rem;
+      background-color: var(--chronicle-color-crimson);
+      color: var(--chronicle-text-white);
+			border: none;
+  		border-radius: .25rem;
+  		font-size: 1rem;
+  		cursor: pointer;
+  }
+	
+}
+}

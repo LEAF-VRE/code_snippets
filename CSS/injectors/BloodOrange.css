@@ -1,0 +1,10 @@
+/* Developing a palette that can extend the 'Blood Orange' theme in LEAF */
+
+ :root {
+    --orange-color-rust-red-dark: hsl(22 100% 38.6%);
+    --orange-color-rust-red-medium: hsl(22 100% 38.6% / 0.8);
+    --orange-color-rust-red-light: hsl(22 100% 38.6% / 0.6);
+    --orange-color-rust-red-pale: hsl(22 100% 38.6% / 0.15);
+}
+
+ 
